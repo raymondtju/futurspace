@@ -5,6 +5,11 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/about.jsx";
 import MainPage from "./pages/index.jsx";
+import AboutPage from "./pages/about.jsx";
+import PricingPage from "./pages/pricing.jsx";
+import OfficePage from "./pages/office.jsx";
+import SpacesPage from "./pages/spaces.jsx";
+import ContactUsPage from "./pages/contact-us.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +22,23 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: <About />,
+        element: <AboutPage />,
+      },
+      {
+        path: "pricing",
+        element: <PricingPage />,
+      },
+      {
+        path: "office",
+        element: <OfficePage />,
+      },
+      {
+        path: "spaces",
+        element: <SpacesPage />,
+      },
+      {
+        path: "contact-us",
+        element: <ContactUsPage />,
       },
     ],
   },

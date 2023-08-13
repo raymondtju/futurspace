@@ -37,6 +37,10 @@
     font-family: "Plus Jakarta Sans", "Times New Roman";
     scroll-behavior: smooth;
   }
+
+  .def-shadow {
+    box-shadow: 0px 4.4795050621032715px 279.96905517578125px 0px rgba(0, 0, 0, 0.08);
+  }
 }
 
 @layer components {

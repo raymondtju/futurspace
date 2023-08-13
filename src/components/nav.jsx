@@ -1,12 +1,13 @@
 import React from "react";
-import { Button } from "./shared/button";
+import { Button } from "./button";
+import { Link } from "react-router-dom";
 
 function NavLogo() {
   return (
-    <div className="flex gap-2 items-center text-lg">
+    <Link className="flex gap-2 items-center text-lg cursor-pointer" to="/">
       <img src="/logo-filled.svg" alt="logo" />
       <h1 className="text-primary-default font-bold">FUTURSPACE</h1>
-    </div>
+    </Link>
   );
 }
 
@@ -37,9 +38,9 @@ function NavItems() {
   return (
     <ul className="flex gap-6 items-center">
       {navItemList.map((item, i) => (
-        <li className="" key={i}>
+        <Link className="" key={i} to={item.path}>
           {item.name}
-        </li>
+        </Link>
       ))}
       <Button>Sign up</Button>
     </ul>
@@ -48,7 +49,7 @@ function NavItems() {
 
 function Navbar() {
   return (
-    <div className="flex justify-between items-center cont my-8">
+    <div className="flex justify-between items-center cont my-12">
       <NavLogo />
       <NavItems />
     </div>
