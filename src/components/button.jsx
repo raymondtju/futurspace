@@ -6,8 +6,8 @@ import { rc } from "@/lib/utils";
 const buttonVariants = cva("rounded-3xl font-bold", {
   variants: {
     variant: {
-      default: "bg-primary-default text-white",
-      secondary: "bg-white text-primary-default border border-primary-default",
+      default: "bg-primary-default text-white hover:bg-sky-600",
+      secondary: "bg-white text-primary-default border border-primary-default hover:bg-gray-100",
     },
     size: {
       default: "px-7 py-3",
