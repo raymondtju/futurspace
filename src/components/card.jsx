@@ -6,14 +6,14 @@ function CardTitle({ children }) {
 }
 
 function CardDesc({ children }) {
-  return <p>{children}</p>;
+  return <p className="text-sm leading-6">{children}</p>;
 }
 
 function Card({ children, className, active = false }) {
   return (
     <div
       className={rc(
-        "p-11 space-y-6 border rounded-2xl def-shadow",
+        "p-8 space-y-6 border rounded-2xl def-shadow",
         active ? "border-primary-default" : "border-none",
         className
       )}
