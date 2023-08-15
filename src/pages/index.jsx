@@ -66,7 +66,7 @@ const services = [
 function OurServicesSection() {
   return (
     <Section className="mt-4 md:items-start" col>
-      <SectionExplain className="w-[80%]">
+      <SectionExplain className="md:w-[80%]">
         <SectionTag className="md:text-left text-center">
           OUR SERVICES
         </SectionTag>
@@ -268,22 +268,24 @@ function ReviewsSection() {
         </div>
       </Section>
 
-      <div className="grid grid-cols-3 gap-10 -mt-10">
-        {reviews.map((rev, i) => (
-          <Card key={i}>
-            <h2>{rev.rating}</h2>
-            <CardDesc>{rev.desc}</CardDesc>
-            <div className="flex gap-3">
-              <div className="rounded-full">
-                <img className="w-10" src={rev.img} alt="user-img" />
+      <div className="cont md:relative md:m-0">
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 -mt-10">
+          {reviews.map((rev, i) => (
+            <Card key={i}>
+              <h2>{rev.rating}</h2>
+              <CardDesc>{rev.desc}</CardDesc>
+              <div className="flex gap-3">
+                <div className="rounded-full">
+                  <img className="w-10" src={rev.img} alt="user-img" />
+                </div>
+                <div>
+                  <CardTitle>{rev.user}</CardTitle>
+                  <CardDesc>{rev.position}</CardDesc>
+                </div>
               </div>
-              <div>
-                <CardTitle>{rev.user}</CardTitle>
-                <CardDesc>{rev.position}</CardDesc>
-              </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -292,8 +294,8 @@ function ReviewsSection() {
 function SectionTwo() {
   return (
     <Section className="mt-4">
-      <div className="bg-[#F0F6FF] p-14 w-full rounded-2xl flex justify-between items-center">
-        <div className="flex flex-col gap-6 w-3/4">
+      <div className="bg-[#F0F6FF] p-12 md:p-20 w-full rounded-3xl flex md:flex-row flex-col-reverse justify-between items-center">
+        <div className="flex flex-col gap-6 md:w-3/4 md:mt-0 mt-4">
           <SectionHeading>
             Customised workspace for rent wherever you need it
           </SectionHeading>

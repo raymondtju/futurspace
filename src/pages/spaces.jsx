@@ -193,7 +193,7 @@ function FeedbackSection() {
             <SectionHeading className="text-center">
               We'd love to hear from you
             </SectionHeading>
-            <SectionDescription className="text-center w-[70%]">
+            <SectionDescription className="text-center md:w-[70%]">
               To book a complimentary private day office or desk, simply
               complete the form below.
             </SectionDescription>

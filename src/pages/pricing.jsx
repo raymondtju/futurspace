@@ -14,7 +14,7 @@ import { ChecklistIcon } from "../components/icons";
 function HeroSection() {
   return (
     <Section>
-      <SectionExplain className="w-[60%] mt-10 mx-auto">
+      <SectionExplain className="md:w-[60%] mt-10 mx-auto">
         <SectionHeading className="text-center">
           Discover flexible spaces and solutions to your business
         </SectionHeading>
@@ -163,11 +163,11 @@ const questions = [
 function FAQSection() {
   return (
     <Section className="flex-col">
-      <SectionExplain className="w-[80%] mb-10 mx-auto">
+      <SectionExplain className="md:w-[80%] mb-10 mx-auto">
         <SectionHeading className="text-center">
           Frequently asked questions about coworking
         </SectionHeading>
-        <SectionDescription className="text-center w-[80%]">
+        <SectionDescription className="text-center md:w-[80%]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit cursus commodo
           at sit mi sed gravida et imperdiet sagittis euismod tortor fringilla
           amet.
@@ -193,8 +193,8 @@ function FAQSection() {
 function ContactSection() {
   return (
     <Section className="mt-4" row>
-      <div className="bg-[#F0F6FF] p-10 rounded-2xl md:flex md:flex-row flex-col-reverse gap-20 justify-between items-center">
-        <div className="flex flex-col gap-10 w-[80%]">
+      <div className="bg-[#F0F6FF] p-10 rounded-3xl flex md:flex-row flex-col-reverse md:gap-20 gap-12 items-center">
+        <div className="flex flex-col gap-8 md:w-[80%]">
           <SectionHeading>
             Confused about which plan would be most suitable for me?
           </SectionHeading>
