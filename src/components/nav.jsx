@@ -148,7 +148,7 @@ function Navbar() {
     <div className={rc("w-full", blue && "bg-primary-default")}>
       <div
         className={rc(
-          "w-full flex justify-between items-center p-10 mx-auto px-10 cont"
+          "w-full flex justify-between items-center p-10 mx-auto px-5 cont"
         )}
       >
         <NavLogo blue={blue} />

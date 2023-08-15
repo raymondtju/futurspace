@@ -13,7 +13,7 @@ import { Card, CardDesc, CardTitle } from "../components/card";
 function HeroSection() {
   return (
     <Section className="mt-4" row>
-      <SectionExplain className="space-y-10 w-full">
+      <SectionExplain className="flex flex-col gap-4 w-full">
         <SectionHeading>
           The workspace that works for you & your team
         </SectionHeading>
@@ -22,7 +22,7 @@ function HeroSection() {
           productivity. Ideal workspaces make life easier and more productive.
         </SectionDescription>
 
-        <div className="space-x-6">
+        <div className="flex gap-6">
           <Button>Discover Now</Button>
           <Button variant="secondary">Book a tour</Button>
         </div>
