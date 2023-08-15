@@ -127,14 +127,13 @@ function DrawerWithNavigation() {
         </div>
         <List>
           {navItemList.map((item, i) => (
-            <ListItem key={i}>
-              <Link
-                className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100"
-                to={item.path}
-              >
-                {item.name}
-              </Link>
-            </ListItem>
+            <Link
+              className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100"
+              to={item.path}
+              key={i}
+            >
+              <ListItem>{item.name}</ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
