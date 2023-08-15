@@ -10,6 +10,8 @@ import {
 } from "../components/section";
 import { Card, CardDesc, CardTitle } from "../components/card";
 import { ChecklistIcon } from "../components/icons";
+import { CardHeader } from "@material-tailwind/react";
+import { rc } from "../lib/utils";
 
 function HeroSection() {
   return (
@@ -104,38 +106,68 @@ const prices = [
 ];
 
 function PricingSection() {
+  const [plan, setPlan] = React.useState("monthly");
+
   return (
     <Section className="flex-col">
-      <div className="bg-[#C9E8FF] h-14 p-2 mx-auto md:w-[25%] rounded-full flex items-center">
-        <div className="bg-white md:w-[40%] flex items-center text-primary-default rounded-full h-full px-4">
-          <p className="font-bold mx-auto">Monthly</p>
+      <div className="bg-[#C9E8FF] h-14 p-2 mx-auto md:w-fit rounded-full flex items-center">
+        <div
+          className={rc(
+            plan === "monthly"
+              ? "bg-white  flex items-center text-primary-default rounded-full h-full px-4"
+              : "px-4",
+            "cursor-pointer"
+          )}
+          onClick={() => setPlan("monthly")}
+        >
+          <p className={plan === "monthly" ? "font-bold mx-auto" : ""}>
+            Monthly
+          </p>
         </div>
-        <p className="px-4">Annual (save 15%)</p>
+        <div
+          className={rc(
+            plan === "annual"
+              ? "bg-white  flex items-center text-primary-default rounded-full h-full px-4"
+              : "px-4",
+            "cursor-pointer"
+          )}
+          onClick={() => setPlan("annual")}
+        >
+          <p className={plan === "annual" ? "font-bold mx-auto" : ""}>
+            Annual (save 15%)
+          </p>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
-        {prices.map((price, i) => (
-          <Card key={i} active={i === 1}>
-            <img src={price.icon} alt="icon" className="w-8" />
-            <p className="font-semibold">{price.tag}</p>
-            <h3 className="font-bold text-3xl">{price.price}</h3>
-            <p className="opacity-60 text-sm">{price.desc}</p>
-            <div className="border-t-2"></div>
+      {plan === "monthly" ? (
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+          {prices.map((price, i) => (
+            <Card key={i} active={i === 1}>
+              <img src={price.icon} alt="icon" className="w-8" />
+              <p className="font-semibold">{price.tag}</p>
+              <h3 className="font-bold text-3xl">{price.price}</h3>
+              <p className="opacity-60 text-sm">{price.desc}</p>
+              <div className="border-t-2"></div>
 
-            <div className="flex flex-col gap-4">
-              {price.features.map((feature, i) => (
-                <div className="flex items-center gap-2">
-                  <ChecklistIcon
-                    color={feature.included ? "#5FBE51" : "#E2E2E2"}
-                  />
-                  <p className="text-black/50">{feature.text}</p>
-                </div>
-              ))}
-            </div>
-            <Button className="w-full">Get Started</Button>
-          </Card>
-        ))}
-      </div>
+              <div className="flex flex-col gap-4">
+                {price.features.map((feature, i) => (
+                  <div className="flex items-center gap-2">
+                    <ChecklistIcon
+                      color={feature.included ? "#5FBE51" : "#E2E2E2"}
+                    />
+                    <p className="text-black/50">{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+              <Button className="w-full">Get Started</Button>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <div className="cont text-center p-10">
+          <h1 className="font-bold text-5xl opacity-50">Annual Plan</h1>
+        </div>
+      )}
     </Section>
   );
 }
@@ -143,14 +175,17 @@ function PricingSection() {
 const questions = [
   {
     text: "What are the benefits of joining the Futurspace network?",
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit elementum velit nunc tortor pulvinar ornare",
     icon: "./icons/plus.png",
   },
   {
     text: "What should I expect from the screening process?",
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit elementum velit nunc tortor pulvinar ornare",
     icon: "./icons/plus.png",
   },
   {
     text: "Is Telephone service available?",
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit elementum velit nunc tortor pulvinar ornare",
     icon: "./icons/plus.png",
   },
   {
@@ -161,6 +196,8 @@ const questions = [
 ];
 
 function FAQSection() {
+  const [active, setActive] = React.useState(0);
+
   return (
     <Section className="flex-col">
       <SectionExplain className="md:w-[80%] mb-10 mx-auto">
@@ -179,9 +216,17 @@ function FAQSection() {
             <div className="flex justify-between items-center">
               <div className="w-[80%]">
                 <CardTitle>{faq.text}</CardTitle>
-                <CardDesc className="opacity-80">{faq.desc}</CardDesc>
+                {i === active && (
+                  <CardDesc className="opacity-80">{faq.desc}</CardDesc>
+                )}
               </div>
-              <img src={faq.icon} alt="icon" className="w-7 h-7" />
+              <button onClick={() => setActive(i)}>
+                <img
+                  src={i === active ? "/icons/min.png" : "/icons/plus.png"}
+                  alt="icon"
+                  className="w-7 h-7"
+                />
+              </button>
             </div>
           </Card>
         ))}
