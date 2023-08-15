@@ -3,11 +3,9 @@ import { Button } from "./button";
 import { Link } from "react-router-dom";
 import {
   Drawer,
-  Typography,
   IconButton,
   List,
   ListItem,
-  iconButton
 } from "@material-tailwind/react";
 
 
@@ -20,14 +18,14 @@ function NavLogo() {
   );
 }
 
-function NavBlueLogo() {
-  return (
-    <Link className="flex gap-2 items-center text-lg cursor-pointer" to="/">
-      <img src="/logo-white.svg" alt="logo" className="w-8" />
-      <h1 className="text-white text-2xl font-bold">FUTURSPACE</h1>
-    </Link>
-  );
-}
+// function NavBlueLogo() {
+//   return (
+//     <Link className="flex gap-2 items-center text-lg cursor-pointer" to="/">
+//       <img src="/logo-white.svg" alt="logo" className="w-8" />
+//       <h1 className="text-white text-2xl font-bold">FUTURSPACE</h1>
+//     </Link>
+//   );
+// }
 
 const navItemList = [
   {
@@ -57,24 +55,11 @@ function NavItems() {
   return (
     <ul className="lg:flex gap-8 items-center hidden">
       {navItemList.map((item, i) => (
-        <Link className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100" key={i} to={item.path}>
+        <Link key={i} className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100" to={item.path}>
           {item.name}
         </Link>
       ))}
       <Button>Sign up</Button>
-    </ul>
-  );
-}
-
-function NavBlueItems() {
-  return (
-    <ul className="flex gap-8 items-center text-white">
-      {navItemList.map((item, i) => (
-        <Link className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100" key={i} to={item.path}>
-          {item.name}
-        </Link>
-      ))}
-      <Button variant="secondary">Sign up</Button>
     </ul>
   );
 }
@@ -112,8 +97,8 @@ function DrawerWithNavigation() {
         </div>
         <List>
           {navItemList.map((item, i) => (
-            <ListItem>
-              <Link className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100" key={i} to={item.path}>
+            <ListItem key={i}>
+              <Link className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100"  to={item.path}>
                 {item.name}
               </Link>
             </ListItem>
@@ -126,7 +111,7 @@ function DrawerWithNavigation() {
 }
 function Navbar() {
   return (
-    <div className="flex justify-between items-center cont my-12">
+    <div className="w-full flex justify-between items-center p-10 mx-auto">
       <NavLogo />
       <NavItems />
       <DrawerWithNavigation />
@@ -134,19 +119,4 @@ function Navbar() {
   );
 }
 
-function NavbarBlue() {
-  return (
-    <div className="bg-primary-default py-12">
-      <div className="flex justify-between items-center cont">
-        <NavBlueLogo />
-        <NavBlueItems />
-      </div>
-    </div>
-  );
-}
-
-export {
-  Navbar,
-  NavbarBlue,
-  DrawerWithNavigation
-};
+export default Navbar;

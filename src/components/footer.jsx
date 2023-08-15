@@ -75,8 +75,8 @@ const icons = [
 
 export default function Footer() {
   return (
-    <footer className="cont border-t pt-16 mb-32">
-      <div className="flex justify-between">
+    <footer className="border-t pt-16 mb-32">
+      <div className="flex justify-between cont">
         <div>
           <h1 className="text-primary-default text-2xl font-bold">FUTURSPACE</h1>
           <p className="text-sm leading-6 text-[#000]/50 text-left max-w-xs mt-4">
@@ -84,7 +84,7 @@ export default function Footer() {
             build a community.
           </p>
           <div className="flex gap-5 my-10">
-            {icons.map((icon) => <img className="h-5" src={icon.icon} alt="icon"/>)}
+            {icons.map((icon, i) => <img key={i} className="h-5" src={icon.icon} alt="icon"/>)}
           </div>
         </div>
 

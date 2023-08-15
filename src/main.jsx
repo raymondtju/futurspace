@@ -33,10 +33,6 @@ const router = createBrowserRouter([
         element: <OfficePage />,
       },
       {
-        path: "office",
-        element: <OfficePage />,
-      },
-      {
         path: "spaces",
         element: <SpacesPage />,
       },
