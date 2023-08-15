@@ -1,6 +1,6 @@
 import Navbar from "@/components/nav";
 import { Outlet } from "react-router-dom";
-import Footer from "./components/footer";
+import { Footer, FooterMobile } from "./components/footer";
 
 export default function App() {
   return (
@@ -8,6 +8,7 @@ export default function App() {
       <Navbar />
       <Outlet />
       <Footer />
+      <FooterMobile />
     </>
   );
 }

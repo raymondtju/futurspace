@@ -12,8 +12,8 @@ import { Card, CardDesc, CardTitle } from "../components/card";
 
 function HeroSection() {
   return (
-    <Section className="mt-4 items-center ">
-      <SectionExplain className="space-y-10 w-[40%]">
+    <Section className="mt-4" row>
+      <SectionExplain className="space-y-10 w-full">
         <SectionHeading>
           The workspace that works for you & your team
         </SectionHeading>
@@ -28,7 +28,7 @@ function HeroSection() {
         </div>
       </SectionExplain>
 
-      <div className="w-[40%]">
+      <div className="w-full">
         <img src="/images/home1.png" alt="hero" />
       </div>
     </Section>
@@ -39,44 +39,46 @@ const services = [
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
-    icon: "./icons/services1.png"
+    icon: "./icons/services1.png",
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
-    icon: "./icons/services2.png"
+    icon: "./icons/services2.png",
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
-    icon: "./icons/services3.png"
+    icon: "./icons/services3.png",
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
-    icon: "./icons/services4.png"
+    icon: "./icons/services4.png",
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
-    icon: "./icons/services5.png"
+    icon: "./icons/services5.png",
   },
 ];
 
 function OurServicesSection() {
   return (
-    <Section className="mt-4 flex flex-col items-start">
+    <Section className="mt-4 md:items-start" col>
       <SectionExplain className="w-[80%]">
-        <SectionTag>OUR SERVICES</SectionTag>
-        <SectionHeading>
+        <SectionTag className="md:text-left text-center">
+          OUR SERVICES
+        </SectionTag>
+        <SectionHeading className="md:text-left text-center">
           Flexible Solutions for Your Business - Choose What Works Best for You
         </SectionHeading>
       </SectionExplain>
 
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
         {services.map((service, i) => (
           <Card key={i} active={i === 1}>
-            <img src={service.icon} alt="icon" className="w-10"/>
+            <img src={service.icon} alt="icon" className="w-10" />
             <CardTitle>{service.title}</CardTitle>
             <CardDesc>{service.desc}</CardDesc>
             <div>
@@ -104,13 +106,17 @@ const secsOne = [
 
 function SectionOne() {
   return (
-    <Section className="mt-4">
+    <Section className="mt-4" row>
       <div className="my-20">
-        <img src="/images/home4.png" alt="hero" className="w-5/6" />
+        <img
+          src="/images/home4.png"
+          alt="hero"
+          className="w-5/6 md:m-0 mx-auto"
+        />
       </div>
 
-      <SectionExplain className="w-2/5 ">
-        <SectionHeading>
+      <SectionExplain className="md:w-2/5 w-full">
+        <SectionHeading className="md:text-left text-center">
           A complete coworking space solution for your business and team
         </SectionHeading>
 
@@ -148,7 +154,7 @@ const whyServiced = [
 function WhyServicesSection() {
   return (
     <Section className="mt-4 flex flex-col">
-      <SectionExplain className="w-2/3">
+      <SectionExplain className="md:w-2/3 w-full">
         <SectionTag className="text-center">WHY SERVICED OFFICE</SectionTag>
         <SectionHeading className="text-center">
           We've helped thousands of fast-growing startups and teams
@@ -160,7 +166,7 @@ function WhyServicesSection() {
         </SectionDescription>
       </SectionExplain>
 
-      <div className="grid grid-cols-3 gap-7">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7">
         {whyServiced.map((item, i) => (
           <Card key={i}>
             <img src={item.image} alt="why" />
@@ -168,7 +174,7 @@ function WhyServicesSection() {
             <CardDesc>{item.desc}</CardDesc>
             <div className="flex cursor-pointer gap-3 items-center">
               <p className="text-primary-default font-bold">Learn more</p>
-              <img src="./icons/r-arrow.png" alt="icon" className="w-5 h-5"/>
+              <img src="./icons/r-arrow.png" alt="icon" className="w-5 h-5" />
             </div>
           </Card>
         ))}
@@ -179,23 +185,23 @@ function WhyServicesSection() {
 
 const locations = [
   {
-    name: "New Orleans, USA"
+    name: "New Orleans, USA",
   },
   {
-    name: "Bangalore, India"
+    name: "Bangalore, India",
   },
   {
-    name: "Sydney, Australia "
-  }
-]
+    name: "Sydney, Australia ",
+  },
+];
 
 function OurOfficeSection() {
   return (
-    <Section className="mt-4 flex gap-x-28">
-      <div className="w-1/2">
+    <Section className="mt-4 flex gap-x-28" row>
+      <div className="md:w-1/2 w-full">
         <img src="/images/home2.png" alt="hero" />
       </div>
-      <SectionExplain className="w-1/2">
+      <SectionExplain className="md:w-1/2 w-full">
         <SectionTag>OUR OFFICES</SectionTag>
         <SectionHeading>
           Discover the Location that Best Fits Your Business Needs
@@ -209,7 +215,9 @@ function OurOfficeSection() {
           {locations.map((location, i) => (
             <div key={i} className="flex items-center gap-5">
               <img className="w-10" src="./icons/map.png" alt="icon" />
-              <p className="font-bold text-lg text-[#2E3135]">{location.name}</p>
+              <p className="font-bold text-lg text-[#2E3135]">
+                {location.name}
+              </p>
             </div>
           ))}
         </div>
@@ -226,24 +234,23 @@ const reviews = [
     desc: "Futurspace is an excellent coworking space for my agency. It’s a great place to meet other business. owners expectations",
     position: "VP, Globee Softech",
     img: "./images/home-rev1.png",
-    rating: "⭐ ⭐ ⭐ ⭐"
+    rating: "⭐ ⭐ ⭐ ⭐",
   },
   {
     user: "Britanny",
     desc: "Quisque consectetur vulputate odio, non dictum metus porttitor molestie. Duis pharetra suscipit dolor, quis euismod velit fringilla sed.",
     position: "Co-Founder & CTO - Payfi",
     img: "./images/home-rev2.png",
-    rating: "⭐ ⭐ ⭐ ⭐"
+    rating: "⭐ ⭐ ⭐ ⭐",
   },
   {
     user: "Randal Robertson",
     desc: "Lorem ipsum dolor sit amet consectetur non adipiscing elit gravida posuere odio metus adipiscing tincidunt venenatis amet sagittis tellus porttitor enim blandit venenatis tellus.",
     position: "Project lead at Zoole",
     img: "./images/home-rev3.png",
-    rating: "⭐ ⭐ ⭐ ⭐"
-  }
-]
-
+    rating: "⭐ ⭐ ⭐ ⭐",
+  },
+];
 
 function ReviewsSection() {
   return (
@@ -279,7 +286,7 @@ function ReviewsSection() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 function SectionTwo() {
@@ -303,12 +310,12 @@ function SectionTwo() {
 function SectionThree() {
   return (
     <Section className="mt-4 flex flex-col">
-      <SectionExplain className="w-5/6">
+      <SectionExplain className="md:w-5/6">
         <SectionHeading className="text-center">
           We enable people to work where they want, when they want and how they
           want
         </SectionHeading>
-        <SectionDescription className="text-center w-2/3">
+        <SectionDescription className="text-center md:w-2/3">
           We offer offices for lease by the day, by the week, or by the year.
           Choose from any of our 3000 locations. Get a free quote!
         </SectionDescription>
@@ -347,7 +354,4 @@ function MainPage() {
   );
 }
 
-export{
-  MainPage, 
-  WhyServicesSection,
-};
+export { MainPage, WhyServicesSection };

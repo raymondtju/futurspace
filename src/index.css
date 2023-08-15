@@ -31,6 +31,9 @@
 
   :root {
     --primary: #0192FE;
+    --status-success: #5FBE51;
+    --status-warning: #FFC107;
+    --status-notavailable: #E0E0E0;
   }
   
   html {

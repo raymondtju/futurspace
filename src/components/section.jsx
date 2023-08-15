@@ -3,27 +3,27 @@ import { rc } from "@/lib/utils";
 
 function SectionHeading({ className, children }) {
   return (
-    <h1
-      className={rc(
-        "font-bold text-4xl max-w-[1166px] mx-auto text-left",
-        className
-      )}
-    >
-      {children}
-    </h1>
+    <div className="w-full">
+      <h1 className={rc("font-bold md:text-4xl text-3xl text-left", className)}>
+        {children}
+      </h1>
+    </div>
   );
 }
 
-function SectionDescription({ className, children }) {
+function SectionDescription({ className, children, maxWidth }) {
   return (
-    <h1
-      className={rc(
-        "text-lg leading-6 text-[#000]/50 max-w-5xl mx-auto text-left",
-        className
-      )}
-    >
-      {children}
-    </h1>
+    <div className="w-full">
+      <h1
+        className={rc(
+          "md:text-lg text-base leading-6 text-[#000]/50 mx-auto text-left",
+          maxWidth && " max-w-5xl",
+          className
+        )}
+      >
+        {children}
+      </h1>
+    </div>
   );
 }
 
@@ -39,12 +39,14 @@ function SectionExplain({ className, children }) {
   return <div className={rc("space-y-6", className)}>{children}</div>;
 }
 
-function Section({ children, className }) {
+function Section({ children, className, col, row }) {
   return (
     <section
       className={rc(
         "flex justify-between cont gap-16 mb-32 items-center",
-        className
+        className,
+        col && "md:flex-col flex-col",
+        row && "md:flex-row flex-col"
       )}
     >
       {children}
