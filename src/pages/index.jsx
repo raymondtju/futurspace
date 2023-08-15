@@ -12,8 +12,8 @@ import { Card, CardDesc, CardTitle } from "../components/card";
 
 function HeroSection() {
   return (
-    <Section className="mt-4 items-center">
-      <SectionExplain className="w-2/5">
+    <Section className="mt-4 items-center ">
+      <SectionExplain className="space-y-10 w-[40%]">
         <SectionHeading>
           The workspace that works for you & your team
         </SectionHeading>
@@ -23,12 +23,12 @@ function HeroSection() {
         </SectionDescription>
 
         <div className="space-x-6">
-          <Button>Dscover Now</Button>
+          <Button>Discover Now</Button>
           <Button variant="secondary">Book a tour</Button>
         </div>
       </SectionExplain>
 
-      <div className="">
+      <div className="w-[40%]">
         <img src="/images/home1.png" alt="hero" />
       </div>
     </Section>
@@ -39,38 +39,44 @@ const services = [
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
+    icon: "./icons/services1.png"
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
+    icon: "./icons/services2.png"
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
+    icon: "./icons/services3.png"
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
+    icon: "./icons/services4.png"
   },
   {
     title: "Hot Desks",
     desc: "Ideal for members who need a productive space to work.",
+    icon: "./icons/services5.png"
   },
 ];
 
 function OurServicesSection() {
   return (
-    <Section className="mt-4 flex flex-col">
-      <SectionExplain>
+    <Section className="mt-4 flex flex-col items-start">
+      <SectionExplain className="w-[80%]">
         <SectionTag>OUR SERVICES</SectionTag>
         <SectionHeading>
           Flexible Solutions for Your Business - Choose What Works Best for You
         </SectionHeading>
       </SectionExplain>
 
-      <div className="grid grid-cols-3 gap-7">
-        {services.map((service, index) => (
-          <Card active={index === 1}>
+      <div className="grid grid-cols-3 gap-10">
+        {services.map((service, i) => (
+          <Card key={i} active={i === 1}>
+            <img src={service.icon} alt="icon" className="w-10"/>
             <CardTitle>{service.title}</CardTitle>
             <CardDesc>{service.desc}</CardDesc>
             <div>
@@ -99,18 +105,18 @@ const secsOne = [
 function SectionOne() {
   return (
     <Section className="mt-4">
-      <div className="">
-        <img src="/images/home4.png" alt="hero" />
+      <div className="my-20">
+        <img src="/images/home4.png" alt="hero" className="w-5/6" />
       </div>
 
-      <SectionExplain className="w-2/5">
+      <SectionExplain className="w-2/5 ">
         <SectionHeading>
           A complete coworking space solution for your business and team
         </SectionHeading>
 
-        <div className="grid gap-7">
-          {secsOne.map((item, index) => (
-            <Card active={index === 1}>
+        <div className="grid gap-7 pt-10">
+          {secsOne.map((item, i) => (
+            <Card key={i} active={i === 0}>
               <CardTitle>{item.title}</CardTitle>
               {item.desc && <CardDesc>{item.desc}</CardDesc>}
             </Card>
@@ -142,7 +148,7 @@ const whyServiced = [
 function WhyServicesSection() {
   return (
     <Section className="mt-4 flex flex-col">
-      <SectionExplain>
+      <SectionExplain className="w-2/3">
         <SectionTag className="text-center">WHY SERVICED OFFICE</SectionTag>
         <SectionHeading className="text-center">
           We've helped thousands of fast-growing startups and teams
@@ -155,13 +161,14 @@ function WhyServicesSection() {
       </SectionExplain>
 
       <div className="grid grid-cols-3 gap-7">
-        {whyServiced.map((item, index) => (
-          <Card active={index === 1}>
+        {whyServiced.map((item, i) => (
+          <Card key={i}>
             <img src={item.image} alt="why" />
             <CardTitle>{item.title}</CardTitle>
             <CardDesc>{item.desc}</CardDesc>
-            <div>
+            <div className="flex cursor-pointer gap-3 items-center">
               <p className="text-primary-default font-bold">Learn more</p>
+              <img src="./icons/r-arrow.png" alt="icon" className="w-5 h-5"/>
             </div>
           </Card>
         ))}
@@ -170,14 +177,26 @@ function WhyServicesSection() {
   );
 }
 
+const locations = [
+  {
+    name: "New Orleans, USA"
+  },
+  {
+    name: "Bangalore, India"
+  },
+  {
+    name: "Sydney, Australia "
+  }
+]
+
 function OurOfficeSection() {
   return (
-    <Section className="mt-4 flex flex-row ">
+    <Section className="mt-4 flex gap-x-28">
       <div className="w-1/2">
         <img src="/images/home2.png" alt="hero" />
       </div>
       <SectionExplain className="w-1/2">
-        <SectionTag>OUR OFFICE</SectionTag>
+        <SectionTag>OUR OFFICES</SectionTag>
         <SectionHeading>
           Discover the Location that Best Fits Your Business Needs
         </SectionHeading>
@@ -185,6 +204,15 @@ function OurOfficeSection() {
           As we headstart into this new normal, we are ensuring your workspace
           experience remains exceptional.
         </SectionDescription>
+
+        <div className="space-y-5 py-10">
+          {locations.map((location, i) => (
+            <div key={i} className="flex items-center gap-5">
+              <img className="w-10" src="./icons/map.png" alt="icon" />
+              <p className="font-bold text-lg text-[#2E3135]">{location.name}</p>
+            </div>
+          ))}
+        </div>
 
         <Button>View Locations</Button>
       </SectionExplain>
@@ -234,8 +262,8 @@ function ReviewsSection() {
       </Section>
 
       <div className="grid grid-cols-3 gap-10 -mt-10">
-        {reviews.map((rev, index) => (
-          <Card active={index === 1}>
+        {reviews.map((rev, i) => (
+          <Card key={i}>
             <h2>{rev.rating}</h2>
             <CardDesc>{rev.desc}</CardDesc>
             <div className="flex gap-3">
@@ -256,9 +284,9 @@ function ReviewsSection() {
 
 function SectionTwo() {
   return (
-    <Section className="mt-4 flex flex-row ">
+    <Section className="mt-4">
       <div className="bg-[#F0F6FF] p-14 w-full rounded-2xl flex justify-between items-center">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 w-3/4">
           <SectionHeading>
             Customised workspace for rent wherever you need it
           </SectionHeading>
@@ -275,12 +303,12 @@ function SectionTwo() {
 function SectionThree() {
   return (
     <Section className="mt-4 flex flex-col">
-      <SectionExplain>
+      <SectionExplain className="w-5/6">
         <SectionHeading className="text-center">
           We enable people to work where they want, when they want and how they
           want
         </SectionHeading>
-        <SectionDescription className="text-center">
+        <SectionDescription className="text-center w-2/3">
           We offer offices for lease by the day, by the week, or by the year.
           Choose from any of our 3000 locations. Get a free quote!
         </SectionDescription>
@@ -319,4 +347,7 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export{
+  MainPage, 
+  WhyServicesSection,
+};

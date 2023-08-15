@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 
 import { rc } from "@/lib/utils";
 
-const buttonVariants = cva("rounded-3xl font-bold", {
+const buttonVariants = cva("rounded-3xl font-semibold", {
   variants: {
     variant: {
       default: "bg-primary-default text-white hover:bg-sky-600",

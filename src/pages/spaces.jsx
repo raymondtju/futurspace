@@ -16,11 +16,11 @@ function HeroSection() {
       <SectionExplain>
         <SectionHeading>A creative coworking space in New York</SectionHeading>
         <SectionDescription>You can book personal office space across the country by the day, hour or month.</SectionDescription>
-        <div className="rounded-full border border-gray-300 flex justify-between max-w-xl p-2.5 mx-auto">
+        <div className="rounded-full border border-gray-300 flex justify-between w-5/6 p-2.5">
           <input
             type="email"
             placeholder="Enter your email"
-            className="focus:outline-none pl-4 w-full"
+            className="focus:outline-none pl-4"
           />
           <Button>Submit</Button>
         </div>
@@ -66,8 +66,8 @@ function ServiceSection() {
       </SectionExplain>
 
       <div className="grid grid-cols-3 gap-10">
-        {services.map((service, index) => (
-          <Card active={index === 1}>
+        {services.map((service, i) => (
+          <Card key={i} active={i === 1}>
             <img src={service.image} alt="card-img" />
             <CardTitle>{service.title}</CardTitle>
             <CardDesc>{service.desc}</CardDesc>
@@ -139,8 +139,8 @@ function ReviewsSection() {
       </Section>
 
       <div className="grid grid-cols-3 gap-10 -mt-10">
-        {reviews.map((rev, index) => (
-          <Card active={index === 1}>
+        {reviews.map((rev, i) => (
+          <Card key={i} active={i === 1}>
             <h2>{rev.rating}</h2>
             <CardDesc>{rev.desc}</CardDesc>
             <div className="flex gap-3">
