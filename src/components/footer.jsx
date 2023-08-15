@@ -23,65 +23,75 @@ const footItems = [
     ],
   },
   {
-    title: "About",
+    title: "Product",
     children: [
       {
-        name: "About Us",
+        name: "Office Space",
         link: "#",
       },
       {
-        name: "Pricing ",
+        name: "Business Lounge",
         link: "#",
       },
       {
-        name: "Offices",
+        name: "Meeting Room",
         link: "#",
       },
       {
-        name: "Spaces",
+        name: "Virtual Office",
         link: "#",
       },
     ],
   },
   {
-    title: "About",
+    title: "Contact",
     children: [
       {
-        name: "About Us",
+        name: "Help Desk",
         link: "#",
       },
       {
-        name: "Pricing ",
+        name: "Book A Tour",
         link: "#",
       },
       {
-        name: "Offices",
+        name: "Blog",
         link: "#",
       },
       {
-        name: "Spaces",
+        name: "Forum",
         link: "#",
       },
     ],
   },
 ];
 
+const icons = [
+  {icon: "./icons/facebook.png"},
+  {icon: "./icons/linkidn.png"},
+  {icon: "./icons/instagram.png"},
+  {icon: "./icons/twitter.png"}
+]
+
 export default function Footer() {
   return (
     <footer className="cont border-t pt-16 mb-32">
       <div className="flex justify-between">
         <div>
-          <h1 className="text-primary-default font-bold">FUTURSPACE</h1>
+          <h1 className="text-primary-default text-2xl font-bold">FUTURSPACE</h1>
           <p className="text-sm leading-6 text-[#000]/50 text-left max-w-xs mt-4">
             We want to build more than nice, shared office spaces. We want to
             build a community.
           </p>
+          <div className="flex gap-5 my-10">
+            {icons.map((icon) => <img className="h-5" src={icon.icon} alt="icon"/>)}
+          </div>
         </div>
 
-        <div className="flex gap-48">
+        <div className="flex gap-48 text-sm">
           {footItems.map((item, i) => (
             <div key={i}>
-              <h4 className="font-bold text-2xl">{item.title}</h4>
+              <h4 className="font-bold text-xl">{item.title}</h4>
               <ul className="flex flex-col gap-4 mt-6">
                 {item.children.map((child, i) => (
                   <li key={i}>

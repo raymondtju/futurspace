@@ -3,13 +3,13 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./pages/about.jsx";
-import MainPage from "./pages/index.jsx";
+import {MainPage} from "./pages/index.jsx";
 import AboutPage from "./pages/about.jsx";
 import PricingPage from "./pages/pricing.jsx";
 import OfficePage from "./pages/office.jsx";
 import SpacesPage from "./pages/spaces.jsx";
 import ContactUsPage from "./pages/contact-us.jsx";
+import { ThemeProvider } from "@material-tailwind/react";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
         element: <PricingPage />,
       },
       {
+        path: "offices",
+        element: <OfficePage />,
+      },
+      {
         path: "office",
         element: <OfficePage />,
       },
@@ -46,6 +50,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );

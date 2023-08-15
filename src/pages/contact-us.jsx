@@ -51,10 +51,10 @@ const contacts = [
 
 function ContactSection () {
   return(
-    <Section className="">
-      <div className="grid grid-cols-3 gap-10">
-        {contacts.map((contact, index) => (
-          <Card active={index === 1}>
+    <Section>
+      <div className="grid grid-cols-3 gap-20 place-items-center">
+        {contacts.map((contact, i) => (
+          <Card key={i} className="w-[70%]" active={i === 1}>
             <CardTitle>{contact.title}</CardTitle>
             <CardDesc>{contact.desc}</CardDesc>
             <div className="flex gap-2 items-center">
