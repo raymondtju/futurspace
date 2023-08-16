@@ -75,8 +75,8 @@ const icons = [
 
 export function Footer() {
   return (
-    <footer className="border-t pt-16 mb-32 hidden md:block">
-      <div className="flex justify-between cont">
+    <footer className=" mb-32 hidden md:block">
+      <div className="flex justify-between cont border-t pt-16">
         <div>
           <h1 className="text-primary text-2xl font-bold">FUTURSPACE</h1>
           <p className="text-sm leading-6 text-[#000]/50 text-left max-w-xs mt-4">

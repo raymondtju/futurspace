@@ -1,12 +1,6 @@
 import React from "react";
 import { Button } from "./button";
-import {
-  Link,
-  NavLink,
-  useLocation,
-  useNavigate,
-  useRoutes,
-} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Drawer, IconButton, List, ListItem } from "@material-tailwind/react";
 import { rc } from "@/lib/utils";
 
@@ -33,15 +27,6 @@ function NavLogo({ blue }) {
     </div>
   );
 }
-
-// function NavBlueLogo() {
-//   return (
-//     <Link className="flex gap-2 items-center text-lg cursor-pointer" to="/">
-//       <img src="/logo-white.svg" alt="logo" className="w-8" />
-//       <h1 className="text-white text-2xl font-bold">FUTURSPACE</h1>
-//     </Link>
-//   );
-// }
 
 const navItemList = [
   {
@@ -160,7 +145,7 @@ function Navbar() {
     <div className={rc("w-full", blue && "bg-primary-default")}>
       <div
         className={rc(
-          "w-full flex justify-between items-center p-10 mx-auto px-5 cont"
+          "w-full flex justify-between items-center p-10 mx-auto px-6 cont"
         )}
       >
         <NavLogo blue={blue} />

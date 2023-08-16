@@ -9,6 +9,9 @@ import {
   SectionExplain,
 } from "../components/section";
 import { Card, CardDesc, CardTitle } from "../components/card";
+import { SwiperSlide } from "swiper/react";
+import { SSwiper } from "../components/swiper";
+import { rc } from "../lib/utils";
 
 function HeroSection() {
   return (
@@ -142,9 +145,20 @@ const reviews = [
 ];
 
 function ReviewsSection() {
+  const sliderRef = React.useRef(null);
+
+  const handlePrev = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  };
+
+  const handleNext = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  };
   return (
     <div className="mb-32">
-      <Section>
+      <Section className="mb-0">
         <div className="gap-10">
           <SectionExplain>
             <SectionTag>REVIEWS</SectionTag>
@@ -152,14 +166,30 @@ function ReviewsSection() {
           </SectionExplain>
         </div>
         <div className="inline-flex gap-10">
-          <img className="w-10" src="./icons/L-arrow.png" alt="btn" />
-          <img className="w-10" src="./icons/RB-arrow.png" alt="btn" />
+          <img
+            className="w-10 cursor-pointer md:block hidden"
+            src="./icons/L-arrow.png"
+            alt="btn-prev"
+            onClick={handlePrev}
+          />
+          <img
+            className="w-10 cursor-pointer md:block hidden"
+            src="./icons/RB-arrow.png"
+            alt="btn-next"
+            onClick={handleNext}
+          />
         </div>
       </Section>
 
-      <div className="grid grid-cols-3 gap-10 -mt-10">
+      <SSwiper refs={sliderRef} initialSlide={1}>
         {reviews.map((rev, i) => (
-          <Card key={i} active={i === 1}>
+          <SwiperSlide
+            key={i}
+            className={rc(
+              "max-w-md p-8 space-y-5 rounded-2xl h-64 shadow-md",
+              i === 1 && "border border-primary-default"
+            )}
+          >
             <h2>{rev.rating}</h2>
             <CardDesc>{rev.desc}</CardDesc>
             <div className="flex gap-3">
@@ -171,9 +201,9 @@ function ReviewsSection() {
                 <CardDesc>{rev.position}</CardDesc>
               </div>
             </div>
-          </Card>
+          </SwiperSlide>
         ))}
-      </div>
+      </SSwiper>
     </div>
   );
 }

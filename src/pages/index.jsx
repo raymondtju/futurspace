@@ -1,5 +1,6 @@
 import React from "react";
 
+import { SwiperSlide } from "swiper/react";
 import { Button } from "../components/button";
 import {
   Section,
@@ -9,6 +10,8 @@ import {
   SectionExplain,
 } from "../components/section";
 import { Card, CardDesc, CardTitle } from "../components/card";
+import { SSwiper } from "../components/swiper";
+import { rc } from "../lib/utils";
 
 function HeroSection() {
   return (
@@ -250,43 +253,82 @@ const reviews = [
     img: "./images/home-rev3.png",
     rating: "⭐ ⭐ ⭐ ⭐",
   },
+  {
+    user: "Randal Robertson",
+    desc: "Lorem ipsum dolor sit amet consectetur non adipiscing elit gravida posuere odio metus adipiscing tincidunt venenatis amet sagittis tellus porttitor enim blandit venenatis tellus.",
+    position: "Project lead at Zoole",
+    img: "./images/home-rev3.png",
+    rating: "⭐ ⭐ ⭐ ⭐",
+  },
+  {
+    user: "Randal Robertson",
+    desc: "Lorem ipsum dolor sit amet consectetur non adipiscing elit gravida posuere odio metus adipiscing tincidunt venenatis amet sagittis tellus porttitor enim blandit venenatis tellus.",
+    position: "Project lead at Zoole",
+    img: "./images/home-rev3.png",
+    rating: "⭐ ⭐ ⭐ ⭐",
+  },
 ];
 
 function ReviewsSection() {
+  const sliderRef = React.useRef(null);
+
+  const handlePrev = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  };
+
+  const handleNext = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  };
+
   return (
     <div className="mb-32">
-      <Section>
+      <Section row className="my-0">
         <div className="gap-10">
           <SectionExplain>
             <SectionTag>REVIEWS</SectionTag>
             <SectionHeading>What Our Members Say</SectionHeading>
           </SectionExplain>
         </div>
-        <div className="inline-flex gap-10">
-          <img className="w-10" src="./icons/L-arrow.png" alt="btn" />
-          <img className="w-10" src="./icons/RB-arrow.png" alt="btn" />
+        <div className="flex gap-10">
+          <img
+            className="w-10 cursor-pointer md:block hidden"
+            src="./icons/L-arrow.png"
+            alt="btn-prev"
+            onClick={handlePrev}
+          />
+          <img
+            className="w-10 cursor-pointer md:block hidden"
+            src="./icons/RB-arrow.png"
+            alt="btn-next"
+            onClick={handleNext}
+          />
         </div>
       </Section>
-
-      <div className="cont md:relative md:m-0">
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 -mt-10">
-          {reviews.map((rev, i) => (
-            <Card key={i}>
-              <h2>{rev.rating}</h2>
-              <CardDesc>{rev.desc}</CardDesc>
-              <div className="flex gap-3">
-                <div className="rounded-full">
-                  <img className="w-10" src={rev.img} alt="user-img" />
-                </div>
-                <div>
-                  <CardTitle>{rev.user}</CardTitle>
-                  <CardDesc>{rev.position}</CardDesc>
-                </div>
+      <SSwiper refs={sliderRef} initialSlide={2}>
+        {reviews.map((rev, i) => (
+          <SwiperSlide
+            key={i}
+            className={rc(
+              "max-w-md p-8 space-y-5 rounded-2xl h-64 shadow-md",
+              i === 2 && "border border-primary-default"
+            )}
+          >
+            <h2>{rev.rating}</h2>
+            <CardDesc>{rev.desc}</CardDesc>
+            <div className="flex gap-3">
+              <div className="rounded-full">
+                <img className="w-10" src={rev.img} alt="user-img" />
               </div>
-            </Card>
-          ))}
-        </div>
-      </div>
+              <div>
+                <CardTitle>{rev.user}</CardTitle>
+                <CardDesc>{rev.position}</CardDesc>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </SSwiper>
     </div>
   );
 }
