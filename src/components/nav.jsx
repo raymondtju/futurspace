@@ -1,12 +1,22 @@
 import React from "react";
 import { Button } from "./button";
-import { Link, useLocation, useRoutes } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  useLocation,
+  useNavigate,
+  useRoutes,
+} from "react-router-dom";
 import { Drawer, IconButton, List, ListItem } from "@material-tailwind/react";
 import { rc } from "@/lib/utils";
 
 function NavLogo({ blue }) {
+  const navigate = useNavigate();
   return (
-    <Link className="flex gap-2 items-center text-lg cursor-pointer" to="/">
+    <div
+      className="flex gap-2 items-center text-lg cursor-pointer"
+      onClick={() => navigate("/")}
+    >
       <img
         src={!blue ? "/logo-filled.svg" : "/logo-white.svg"}
         alt="logo"
@@ -20,7 +30,7 @@ function NavLogo({ blue }) {
       >
         FUTURSPACE
       </h1>
-    </Link>
+    </div>
   );
 }
 
@@ -57,19 +67,20 @@ const navItemList = [
 ];
 
 function NavItems({ blue }) {
+  const navigate = useNavigate();
   return (
     <ul className="lg:flex gap-8 items-center hidden">
       {navItemList.map((item, i) => (
-        <Link
+        <li
           key={i}
           className={rc(
-            "opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100",
+            "opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cursor-pointer",
             blue && "text-white"
           )}
-          to={item.path}
+          onClick={() => navigate(item.path)}
         >
           {item.name}
-        </Link>
+        </li>
       ))}
       <Button variant="secondary">Sign up</Button>
     </ul>
@@ -80,6 +91,7 @@ function DrawerWithNavigation() {
   const [open, setOpen] = React.useState(false);
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -127,13 +139,13 @@ function DrawerWithNavigation() {
         </div>
         <List>
           {navItemList.map((item, i) => (
-            <Link
-              className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100"
-              to={item.path}
+            <div
+              className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cirson-pointer"
               key={i}
+              onClick={() => navigate("/")}
             >
               <ListItem>{item.name}</ListItem>
-            </Link>
+            </div>
           ))}
         </List>
       </Drawer>
