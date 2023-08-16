@@ -54,9 +54,9 @@ const navItemList = [
 function NavItems({ blue }) {
   const navigate = useNavigate();
   return (
-    <ul className="lg:flex gap-8 items-center hidden">
+    <div className="lg:flex gap-8 items-center hidden">
       {navItemList.map((item, i) => (
-        <li
+        <div
           key={i}
           className={rc(
             "opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cursor-pointer",
@@ -65,14 +65,14 @@ function NavItems({ blue }) {
           onClick={() => navigate(item.path)}
         >
           {item.name}
-        </li>
+        </div>
       ))}
       <Button variant="secondary">Sign up</Button>
-    </ul>
+    </div>
   );
 }
 
-function DrawerWithNavigation() {
+function DrawerWithNavigation({ pathname }) {
   const [open, setOpen] = React.useState(false);
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
@@ -91,8 +91,8 @@ function DrawerWithNavigation() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
+          fill={pathname === "/about" ? "white" : "black"}
+          stroke={pathname === "/about" ? "white" : "black"}
           strokeWidth={2}
         >
           <path
@@ -124,13 +124,13 @@ function DrawerWithNavigation() {
         </div>
         <List>
           {navItemList.map((item, i) => (
-            <div
+            <ListItem
               className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cirson-pointer"
               key={i}
-              onClick={() => navigate("/")}
+              onClick={() => navigate(item.path)}
             >
-              <ListItem>{item.name}</ListItem>
-            </div>
+              {item.name}
+            </ListItem>
           ))}
         </List>
       </Drawer>
@@ -150,7 +150,7 @@ function Navbar() {
       >
         <NavLogo blue={blue} />
         <NavItems blue={blue} />
-        <DrawerWithNavigation blue={blue} />
+        <DrawerWithNavigation blue={blue} pathname={pathname} />
       </div>
     </div>
   );
