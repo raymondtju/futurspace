@@ -19,7 +19,7 @@ function HeroSection() {
           <SectionHeading className="text-center">
             Our space is more than a shared office. It is a meeting ground.
           </SectionHeading>
-          <SectionDescription className="text-center">
+          <SectionDescription className="text-center text-xs md:text-base">
             Find focus and clarity space to do the things you need to do to grow
             your business in New York. Book by the month, daily or by the hour.
           </SectionDescription>
@@ -57,14 +57,14 @@ const contacts = [
 function ContactSection() {
   return (
     <Section>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-20 gap-14">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-20 gap-14 m-auto">
         {contacts.map((contact, i) => (
-          <Card key={i} className="md:w-[70%]" active={i === 1}>
+          <Card key={i} className="md:w-[70%]">
             <CardTitle>{contact.title}</CardTitle>
             <CardDesc>{contact.desc}</CardDesc>
-            <div className="flex gap-2 items-center">
+            <div className="inline-flex gap-2 cursor-pointer group items-center">
               <p className="text-primary-default font-bold">{contact.link}</p>
-              <img className="w-5 h-5" src={contact.img} alt="icon" />
+              <img src={contact.img} alt="icon" className="transition-transform group-hover:translate-x-2 w-5 h-5"/>
             </div>
           </Card>
         ))}
@@ -82,14 +82,14 @@ function CtaSection() {
         </div>
 
         <SectionExplain>
-          <SectionHeading>Coworking, Private Offices and More</SectionHeading>
-          <SectionDescription>
+          <SectionHeading className="text-2xl">Coworking, Private Offices and More</SectionHeading>
+          <SectionDescription className="text-xs md:text-base">
             Your membership at is all-inclusive, providing amenities designed to
             allow you to focus on your business instead of logistics.
           </SectionDescription>
-          <div className="space-x-6 text-sm">
-            <Button>Discover Now</Button>
-            <Button variant="secondary">Book a tour</Button>
+          <div className="flex gap-3">
+            <Button className="px-5 text-[.7em]">Discover Now</Button>
+            <Button className="px-5 text-[.7em]" variant="secondary">Book a tour</Button>
           </div>
         </SectionExplain>
       </div>
@@ -125,14 +125,14 @@ function FormSection() {
       <div className="md:px-10 w-full">
         <form action="" className="flex gap-10 flex-col">
           <input
-            className="px-8 py-4 w-full border rounded-full"
+            className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
             type="text"
             name="firstName"
             id="fistName"
             placeholder="First Name"
           />
           <input
-            className="px-8 py-4 w-full border rounded-full"
+            className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
             type="text"
             name="lastName"
             id="lastName"
@@ -140,18 +140,18 @@ function FormSection() {
           />
           <div className="flex gap-10">
             <input
-              className="px-8 py-4 w-full border rounded-full"
+              className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
               type="email"
               name="email"
               id="email"
               placeholder="Your Email"
             />
-            <select className="px-8 py-4 w-full border rounded-full">
-              <option value="option">Select option</option>
+              <select className="px-8 py-4 w-full border rounded-full focus:outline-primary-default">
+              <option value="option">Select option  </option>
             </select>
           </div>
           <input
-            className="px-8 py-4 w-full border rounded-full"
+            className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
             type="text"
             name="message"
             id="message"
@@ -159,7 +159,7 @@ function FormSection() {
           />
           <label className="flex gap-3">
             <input
-              className="rounded-full colo"
+              className="accent-[#C0C0C0]"
               type="checkbox"
               name="checkbox"
               id="checkbox"
