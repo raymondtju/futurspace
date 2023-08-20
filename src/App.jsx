@@ -7,8 +7,15 @@ import OfficePage from "./pages/office";
 import SpacesPage from "./pages/spaces";
 import ContactUsPage from "./pages/contact-us";
 import PricingPage from "./pages/pricing";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
 
 export default function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <>
       <Navbar />

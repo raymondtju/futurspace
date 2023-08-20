@@ -8,17 +8,17 @@ function NavLogo({ blue }) {
   const navigate = useNavigate();
   return (
     <div
-      className="flex gap-2 items-center text-lg cursor-pointer"
+      className="flex gap-2 items-center text-lg cursor-pointer animate-fade-down animate-once animate-duration-1000 animate-delay-300 animate-ease-out"
       onClick={() => navigate("/")}
     >
-      <img
+      <img 
         src={!blue ? "/logo-filled.svg" : "/logo-white.svg"}
         alt="logo"
         className="w-8"
       />
       <h1
         className={rc(
-          "text-primary-default text-2xl font-bold",
+          "text-primary-default text-lg sm:text-2xl font-bold",
           blue && "text-white"
         )}
       >
@@ -54,20 +54,20 @@ const navItemList = [
 function NavItems({ blue }) {
   const navigate = useNavigate();
   return (
-    <div className="lg:flex gap-8 items-center hidden">
+    <div className="lg:flex gap-8 items-center hidden animate-fade-down animate-once animate-duration-1000 animate-delay-300 animate-ease-out">
       {navItemList.map((item, i) => (
-        <div
-          key={i}
-          className={rc(
-            "opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cursor-pointer",
-            blue && "text-white"
-          )}
-          onClick={() => navigate(item.path)}
-        >
-          {item.name}
-        </div>
+          <div
+            key={i}
+            className={rc(
+              "opacity-80 hover:opacity-100 cursor-pointer",
+              blue && "text-white"
+            )}
+            onClick={() => navigate(item.path)}
+          >
+            {item.name}
+          </div>
       ))}
-      <Button variant="secondary">Sign up</Button>
+      <Button variant={blue ? "secondary" : "default"}>Sign up</Button>
     </div>
   );
 }
@@ -87,6 +87,7 @@ function DrawerWithNavigation({ pathname }) {
         )}
         ripple={false}
         onClick={openDrawer}
+        data-aos="flip-down"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +126,7 @@ function DrawerWithNavigation({ pathname }) {
         <List>
           {navItemList.map((item, i) => (
             <ListItem
-              className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cirson-pointer"
+              className="opacity-80 hover:opacity-100 focus:font-semibold focus:opacity-100 cursor-pointer "
               key={i}
               onClick={() => navigate(item.path)}
             >
@@ -142,7 +143,7 @@ function Navbar() {
   const pathname = useLocation().pathname;
   const blue = pathname === "/about";
   return (
-    <div className={rc("w-full", blue && "bg-primary-default")}>
+    <div className={rc("w-full ", blue && "bg-primary-default")}>
       <div
         className={rc(
           "w-full flex justify-between items-center p-10 mx-auto px-6 cont"

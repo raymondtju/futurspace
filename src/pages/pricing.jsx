@@ -10,7 +10,6 @@ import {
 } from "../components/section";
 import { Card, CardDesc, CardTitle } from "../components/card";
 import { ChecklistIcon } from "../components/icons";
-import { CardHeader } from "@material-tailwind/react";
 import { rc } from "../lib/utils";
 
 function HeroSection() {
@@ -38,19 +37,23 @@ const prices = [
     desc: "Pay one simple price for everything related to your workspace.",
     features: [
       {
-        text: "24/7 access",
+        text: "Coworking & Rooms",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "High-speed Internet",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "Explusive Workspace",
         included: false,
       },
       {
-        text: "24/7 access",
+        text: "Customisable Room",
+        included: false,
+      },
+      {
+        text: "All-inclusive Pricing",
         included: false,
       },
     ],
@@ -62,19 +65,31 @@ const prices = [
     desc: "Pay one simple price for everything related to your workspace.",
     features: [
       {
-        text: "24/7 access",
+        text: "Coworking & Rooms",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "High-speed Internet",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "Explusive Workspace",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "Customisable Room",
+        included: true,
+      },
+      {
+        text: "Meeting Rooms",
+        included: true,
+      },
+      {
+        text: "Private Office",
+        included: true,
+      },
+      {
+        text: "All-inclusive Pricing",
         included: false,
       },
     ],
@@ -86,19 +101,23 @@ const prices = [
     desc: "Pay one simple price for everything related to your workspace.",
     features: [
       {
-        text: "24/7 access",
+        text: "Coworking & Rooms",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "High-speed Internet",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "Explusive Workspace",
         included: true,
       },
       {
-        text: "24/7 access",
+        text: "Customisable Room",
+        included: true,
+      },
+      {
+        text: "All-inclusive Pricing",
         included: true,
       },
     ],
@@ -110,7 +129,7 @@ function PricingSection() {
 
   return (
     <Section className="flex-col">
-      <div className="bg-[#C9E8FF] h-14 p-2 mx-auto md:w-fit rounded-full flex items-center">
+      <div className="bg-[#C9E8FF] h-14 p-2 mx-auto md:w-fit rounded-full flex items-center animate-fade-down animate-once animate-duration-500 animate-delay-100 animate-ease-in">
         <div
           className={rc(
             plan === "monthly"
@@ -142,7 +161,7 @@ function PricingSection() {
       {plan === "monthly" ? (
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
           {prices.map((price, i) => (
-            <Card key={i} active={i === 1}>
+            <Card className="h-fit" key={i} active={i === 1}>
               <img src={price.icon} alt="icon" className="w-8" />
               <p className="font-semibold">{price.tag}</p>
               <h3 className="font-bold text-3xl">{price.price}</h3>
@@ -199,7 +218,7 @@ function FAQSection() {
   const [active, setActive] = React.useState(0);
 
   return (
-    <Section className="flex-col">
+    <Section className="flex-col text-xs md:text-lg">
       <SectionExplain className="md:w-[80%] mb-10 mx-auto">
         <SectionHeading className="text-center">
           Frequently asked questions about coworking
@@ -224,7 +243,7 @@ function FAQSection() {
                 <img
                   src={i === active ? "/icons/min.png" : "/icons/plus.png"}
                   alt="icon"
-                  className="w-7 h-7"
+                  className="w-7 h-7 hover:p-0.5"
                 />
               </button>
             </div>
@@ -243,9 +262,9 @@ function ContactSection() {
           <SectionHeading>
             Confused about which plan would be most suitable for me?
           </SectionHeading>
-          <Button className="w-fit">Contact us</Button>
+          <Button className="w-fit" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500">Contact us</Button>
         </div>
-        <div>
+        <div data-aos-offset="0" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
           <img src="/images/pricing1.png" alt="hero" />
         </div>
       </div>
@@ -277,9 +296,9 @@ function SubscribeSection() {
           <Button>Submit</Button>
         </div>
 
-        <SectionDescription className="text-center mt-4">
+        <p className="text-center mt-4 text-sm md:text-base italic opacity-50">
           No worries, we don’t do spam!
-        </SectionDescription>
+        </p>
       </div>
     </Section>
   );

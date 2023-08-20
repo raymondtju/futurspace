@@ -17,23 +17,23 @@ function HeroSection() {
   return (
     <Section row>
       <SectionExplain>
-        <SectionHeading className="md:text-left text-center">
+        <SectionHeading className="md:text-left text-center animate-fade-top animate-duration-500 animate-delay-2000 animate-ease-in-out">
           A creative coworking space in New York
         </SectionHeading>
-        <SectionDescription className="md:text-left text-center">
+        <SectionDescription className="md:text-left text-center animate-fade-right animate-duration-500 animate-delay-100 animate-ease-in">
           You can book personal office space across the country by the day, hour
           or month.
         </SectionDescription>
-        <div className="rounded-full border border-gray-300 flex justify-between w-5/6 p-2.5 md:mx-0 mx-auto">
+        <div className="rounded-full border border-gray-300 flex justify-between w-5/6 p-2.5 md:mx-0 mx-auto animate-fade-right animate-duration-500 animate-delay-100 animate-ease-in">
           <input
             type="email"
             placeholder="Enter your email"
-            className="focus:outline-none pl-4"
+            className="focus:outline-none pl-4 w-full text-sm md:text-base"
           />
           <Button>Submit</Button>
         </div>
       </SectionExplain>
-      <div>
+      <div className="animate-fade-left animate-duration-300 animate-delay-300 animate-ease-in">
         <img src="./images/space1.png" alt="hero" />
       </div>
     </Section>
@@ -44,22 +44,16 @@ const services = [
   {
     title: "Hots Desks",
     desc: "Informal drop-in meeting spaces with secure WiFi, access to a printer, scanner and photocopier.",
-    link: "Learn more",
-    icon: "./icons/r-arrow.png",
     image: "./images/home-why1.png",
   },
   {
     title: "Starter Spaces",
     desc: "Informal drop-in meeting spaces with secure WiFi, access to a printer, scanner and photocopier.",
-    link: "Learn more",
-    icon: "./icons/r-arrow.png",
     image: "./images/home-why2.png",
   },
   {
     title: "Coworking Spaces",
     desc: "Informal drop-in meeting spaces with secure WiFi, access to a printer, scanner and photocopier.",
-    link: "Learn more",
-    icon: "./icons/r-arrow.png",
     image: "./images/home-why3.png",
   },
 ];
@@ -81,13 +75,13 @@ function ServiceSection() {
 
       <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
         {services.map((service, i) => (
-          <Card key={i} active={i === 1}>
+          <Card key={i}>
             <img src={service.image} alt="card-img" />
             <CardTitle>{service.title}</CardTitle>
             <CardDesc>{service.desc}</CardDesc>
-            <div className="flex gap-2 items-center">
-              <p className="text-primary-default font-bold">{service.link}</p>
-              <img className="w-5 h-5" src={service.icon} alt="icon" />
+            <div className="inline-flex gap-2 cursor-pointer group items-center">
+              <p className="text-primary-default font-bold">Learn more</p>
+              <img src="./icons/r-arrow.png" alt="icon" className="transition-transform group-hover:translate-x-2 w-5 h-5"/>
             </div>
           </Card>
         ))}
@@ -99,20 +93,20 @@ function ServiceSection() {
 function CtaSection() {
   return (
     <Section>
-      <div className="flex md:flex-row flex-col-reverse p-16 bg-[#0190fe11] gap-20 rounded-3xl">
+      <div className="flex md:flex-row flex-col-reverse p-10 md:p-16 bg-[#0190fe11] gap-20 rounded-3xl">
         <SectionExplain className="md:w-[60%]">
-          <SectionHeading>
+          <SectionHeading className="text-xl">
             Stay productive with modern workspace, private office, and coworking
             solutions
           </SectionHeading>
-          <SectionDescription>
+          <SectionDescription className="text-xs md:text-base">
             Workspaces that suit your business. We have professional and
             inspiring work environments to suit businesses of all sizes and
             budget.
           </SectionDescription>
-          <Button>Get Started</Button>
+          <Button data-aos="fade-right" data-aos-duration="700" data-aos-delay="300">Get Started</Button>
         </SectionExplain>
-        <div>
+        <div data-aos-offset="0" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
           <img src="./images/space2.png" alt="cta-img" />
         </div>
       </div>
@@ -165,15 +159,15 @@ function ReviewsSection() {
             <SectionHeading>What Our Members Say</SectionHeading>
           </SectionExplain>
         </div>
-        <div className="inline-flex gap-10">
+        <div className="inline-flex gap-10" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
           <img
-            className="w-10 cursor-pointer md:block hidden"
+            className="w-10 cursor-pointer md:block hidden hover:-translate-x-1 transition-all"
             src="./icons/L-arrow.png"
             alt="btn-prev"
             onClick={handlePrev}
           />
           <img
-            className="w-10 cursor-pointer md:block hidden"
+            className="w-10 cursor-pointer md:block hidden hover:translate-x-1 transition-all"
             src="./icons/RB-arrow.png"
             alt="btn-next"
             onClick={handleNext}
@@ -184,10 +178,10 @@ function ReviewsSection() {
       <SSwiper refs={sliderRef} initialSlide={1}>
         {reviews.map((rev, i) => (
           <SwiperSlide
+          data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             key={i}
             className={rc(
-              "max-w-md p-8 space-y-5 rounded-2xl h-64 shadow-md",
-              i === 1 && "border border-primary-default"
+              "max-w-md px-8 space-y-5 rounded-2xl h-64 shadow-md"
             )}
           >
             <h2>{rev.rating}</h2>
@@ -213,38 +207,38 @@ function FeedbackSection() {
     <Section>
       <div className="flex flex-col items-start bg-[#0190fe11] md:p-16 px-6 py-8 rounded-3xl">
         <SectionExplain className="m-auto">
-          <SectionHeading className="text-center">
+          <SectionHeading className="text-center text-xl">
             One of our workspace experts will reach out to you based on your
             communication preferences.
           </SectionHeading>
         </SectionExplain>
-        <div className="mt-10 px-10 md:w-[80%] p-10 m-auto bg-white rounded-xl">
+        <div className="mt-10 md:p-10 md:w-[80%] p-5 m-auto bg-white rounded-xl">
           <div className="space-y-5 mb-5">
-            <SectionHeading className="text-center">
+            <h3 className="font-bold text-center text-lg">
               We'd love to hear from you
-            </SectionHeading>
-            <SectionDescription className="text-center md:w-[70%]">
+            </h3>
+            <p className="text-center md:w-[70%] text-sm md:text-base">
               To book a complimentary private day office or desk, simply
               complete the form below.
-            </SectionDescription>
+            </p>
           </div>
-          <form action="" className="flex gap-10 flex-col">
+          <form action="" className="flex gap-10 flex-col text-xs md:text-base">
             <input
-              className="px-8 py-4 w-full border rounded-full"
+              className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
               type="text"
               name="firstName"
               id="fistName"
               placeholder="Enter your name"
             />
             <input
-              className="px-8 py-4 w-full border rounded-full"
+              className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
               type="email"
               name="email"
               id="email"
               placeholder="Enter your email"
             />
             <input
-              className="px-8 py-4 w-full border rounded-full"
+              className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
               type="text"
               name="message"
               id="message"
@@ -260,7 +254,7 @@ function FeedbackSection() {
 
 function ClientSection() {
   return (
-    <div className="cont text-center px-20 mb-20">
+    <div className="cont text-center px-5 md:px-20 mb-20">
       <p className="opacity-60 font-bold mb-5">
         Trusted by top companies and startups around the world
       </p>
