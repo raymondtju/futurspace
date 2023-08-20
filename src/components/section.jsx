@@ -44,7 +44,7 @@ function Section({ children, className, col, row }) {
   return (
     <section
       className={rc(
-        "flex justify-between cont gap-16 mb-32 items-center",
+        "flex justify-between cont gap-16 mb-24 md:mb-32 items-center",
         className,
         col && "md:flex-col flex-col",
         row && "md:flex-row flex-col"

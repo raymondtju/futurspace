@@ -262,9 +262,9 @@ function ContactSection() {
           <SectionHeading>
             Confused about which plan would be most suitable for me?
           </SectionHeading>
-          <Button className="w-fit">Contact us</Button>
+          <Button className="w-fit" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500">Contact us</Button>
         </div>
-        <div>
+        <div data-aos-offset="0" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
           <img src="/images/pricing1.png" alt="hero" />
         </div>
       </div>
@@ -296,9 +296,9 @@ function SubscribeSection() {
           <Button>Submit</Button>
         </div>
 
-        <SectionDescription className="text-center mt-4">
+        <p className="text-center mt-4 text-sm md:text-base italic opacity-50">
           No worries, we don’t do spam!
-        </SectionDescription>
+        </p>
       </div>
     </Section>
   );

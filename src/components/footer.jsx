@@ -90,7 +90,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex gap-48 text-sm">
+        <div className="flex gap-20 lg:gap-48 text-sm">
           {footItems.map((item, i) => (
             <div key={i}>
               <h4 className="font-bold text-xl">{item.title}</h4>

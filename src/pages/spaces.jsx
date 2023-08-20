@@ -28,7 +28,7 @@ function HeroSection() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="focus:outline-none pl-4"
+            className="focus:outline-none pl-4 w-full text-sm md:text-base"
           />
           <Button>Submit</Button>
         </div>
@@ -104,9 +104,9 @@ function CtaSection() {
             inspiring work environments to suit businesses of all sizes and
             budget.
           </SectionDescription>
-          <Button>Get Started</Button>
+          <Button data-aos="fade-right" data-aos-duration="700" data-aos-delay="300">Get Started</Button>
         </SectionExplain>
-        <div>
+        <div data-aos-offset="0" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
           <img src="./images/space2.png" alt="cta-img" />
         </div>
       </div>
@@ -159,7 +159,7 @@ function ReviewsSection() {
             <SectionHeading>What Our Members Say</SectionHeading>
           </SectionExplain>
         </div>
-        <div className="inline-flex gap-10">
+        <div className="inline-flex gap-10" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
           <img
             className="w-10 cursor-pointer md:block hidden hover:-translate-x-1 transition-all"
             src="./icons/L-arrow.png"
@@ -178,6 +178,7 @@ function ReviewsSection() {
       <SSwiper refs={sliderRef} initialSlide={1}>
         {reviews.map((rev, i) => (
           <SwiperSlide
+          data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             key={i}
             className={rc(
               "max-w-md px-8 space-y-5 rounded-2xl h-64 shadow-md"
@@ -213,15 +214,15 @@ function FeedbackSection() {
         </SectionExplain>
         <div className="mt-10 md:p-10 md:w-[80%] p-5 m-auto bg-white rounded-xl">
           <div className="space-y-5 mb-5">
-            <SectionHeading className="text-center text-xl">
+            <h3 className="font-bold text-center text-lg">
               We'd love to hear from you
-            </SectionHeading>
-            <SectionDescription className="text-center md:w-[70%] text-xs md:text-base">
+            </h3>
+            <p className="text-center md:w-[70%] text-sm md:text-base">
               To book a complimentary private day office or desk, simply
               complete the form below.
-            </SectionDescription>
+            </p>
           </div>
-          <form action="" className="flex gap-10 flex-col text-xs">
+          <form action="" className="flex gap-10 flex-col text-xs md:text-base">
             <input
               className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
               type="text"
@@ -253,7 +254,7 @@ function FeedbackSection() {
 
 function ClientSection() {
   return (
-    <div className="cont text-center px-20 mb-20">
+    <div className="cont text-center px-5 md:px-20 mb-20">
       <p className="opacity-60 font-bold mb-5">
         Trusted by top companies and startups around the world
       </p>

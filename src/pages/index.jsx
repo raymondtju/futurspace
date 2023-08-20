@@ -226,7 +226,7 @@ function OurOfficeSection() {
           ))}
         </div>
 
-        <Button data-aos-offset="0" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="100">View Locations</Button>
+        <Button>View Locations</Button>
       </SectionExplain>
     </Section>
   );
@@ -292,7 +292,7 @@ function ReviewsSection() {
             <SectionHeading>What Our Members Say</SectionHeading>
           </SectionExplain>
         </div>
-        <div className="inline-flex gap-10">
+        <div className="inline-flex gap-10" data-aos="flip-right" data-aos-duration="700" data-aos-delay="200">
           <img
             className="w-10 cursor-pointer md:block hidden hover:-translate-x-1 transition-all"
             src="./icons/L-arrow.png"
@@ -310,6 +310,7 @@ function ReviewsSection() {
       <SSwiper refs={sliderRef} initialSlide={2}>
         {reviews.map((rev, i) => (
           <SwiperSlide
+            data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             key={i}
             className={rc(
               "max-w-md p-8 space-y-5 rounded-2xl h-64 shadow-md"
@@ -343,7 +344,7 @@ function SectionTwo() {
           </SectionHeading>
           <Button className="w-fit">Book Tour</Button>
         </div>
-        <div>
+        <div data-aos-offset="0" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
           <img src="/images/home3.png" alt="hero" />
         </div>
       </div>
@@ -375,7 +376,7 @@ function SectionThree() {
           <Button>Submit</Button>
         </div>
 
-        <p className="text-center mt-4 text-lg opacity-90">
+        <p className="text-center mt-4 text-sm md:text-base italic opacity-50">
           No worries, we don’t do spam!
         </p>
       </div>

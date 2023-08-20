@@ -77,7 +77,7 @@ function CtaSection() {
   return (
     <Section>
       <div className="flex md:flex-row flex-col rounded-3xl md:gap-20 gap-10 bg-[#0190fe11] p-10">
-        <div>
+        <div data-aos-offset="0" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
           <img src="./images/contact1.png" alt="CTA" />
         </div>
 
@@ -87,7 +87,7 @@ function CtaSection() {
             Your membership at is all-inclusive, providing amenities designed to
             allow you to focus on your business instead of logistics.
           </SectionDescription>
-          <div className="flex gap-3">
+          <div className="flex gap-3" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
             <Button className="px-5 text-[.7em]">Discover Now</Button>
             <Button className="px-5 text-[.7em]" variant="secondary">Book a tour</Button>
           </div>
@@ -123,7 +123,7 @@ function FormSection() {
         </SectionDescription>
       </SectionExplain>
       <div className="md:px-10 w-full">
-        <form action="" className="flex gap-10 flex-col">
+        <form action="" className="flex gap-10 flex-col text-xs md:text-base">
           <input
             className="px-8 py-4 w-full border rounded-full focus:outline-primary-default caret-primary-default"
             type="text"
@@ -146,8 +146,8 @@ function FormSection() {
               id="email"
               placeholder="Your Email"
             />
-              <select className="px-8 py-4 w-full border rounded-full focus:outline-primary-default">
-              <option value="option">Select option  </option>
+            <select className="px-8 opacity-60 py-4 w-full border rounded-full focus:outline-primary-default">
+              <option className="opacity-50" value="option">Select option  </option>
             </select>
           </div>
           <input
@@ -157,7 +157,7 @@ function FormSection() {
             id="message"
             placeholder="Message"
           />
-          <label className="flex gap-3">
+          <label className="flex gap-3 text-[.7em] md:text-sm opacity-80">
             <input
               className="accent-[#C0C0C0]"
               type="checkbox"
